@@ -31,9 +31,21 @@ class ChangeTest(unittest.TestCase):
     change = Change()
     self.assertEqual(change.makeChange(25), {'q':1})
 
-  def test_fourty_eight_cents(self):
+  def test_forty_eight_cents(self):
     change = Change()
     self.assertEqual(change.makeChange(48), {'q':1, 'd':2, 'p':3})
+
+  def test_fifty_cents(self):
+    change = Change()
+    self.assertEqual(change.makeChange(50), {'h':1})
+
+  def test_seventy_four_cents(self):
+    change = Change()
+    self.assertEqual(change.makeChange(74), {'h':1, 'd':2, 'p':4})
+
+  def test_ninety_one_cents(self):
+    change = Change()
+    self.assertEqual(change.makeChange(91), {'h':1, 'q':1, 'd':1, 'n':1, 'p':1})
 
 if __name__ == '__main__':
     unittest.main()
